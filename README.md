@@ -9,10 +9,35 @@ In contrast to the high-maintenance leafy plants, succulents are the low-mainten
 🌱 Watering | </b>Keep the compost lightly moist, but do not overwater or allow it to stand in water.  
 
 ## Board and sensors  
-- Feather Huzzah ESP8266 Wifi  
-- Raspberry Pi 4  
-- DHT22  
-- Nail Soil Sensor  
+- Feather Huzzah ESP8266 Wi-Fi  
+- Raspberry Pi 4
+- UCL CASA Plant Monitor Shield
+- DHT22: environment temperature, humidity  
+- Nail Soil Sensor: soil moisture  
 
 ## Process
-![process](./img/process.png) 
+![process](./img/process.png)   
+### Build: Setting up environments(Wifi&Time)  
+- [Testing](./testwifi_tz) Wi-Fi with ESP8266
+- Setting Timezone (GB)
+- Solder up CASA Plant Monitor shield
+  
+### Sensor: Testing sensors and collecting data  
+- [Testing](./testDHT22) DHT22 and collecting environment data
+- [Testing](./testMoisture) Nail Soil sensor and collecting soil data  
+ 
+### Connect: Connecting and publishing data to MQTT  
+- [Sending](./testMQTT) Data to MQTT (Publish topics: temperature, humidity, moisture)       
+  ![mqtt](https://github.com/sjosk/Plantmonitor/blob/main/testMQTT/Sending%20Soil%20Data%20to%20MQTT02.png?raw=true)
+  
+### Store: Setting up the gateway and storing data  
+- Setting up Raspberry Pi as a gateway
+- [Install](./testInfluxDB_Telegraf_Grafana) InfluxDB, Telegraf, Grafana
+- Setting InfluxDB and Telegraf to capture the data from MQTT topics.
+- Create Database and Raspberry Pi System Dashboard
+  
+### Visualize: Times Series Database Visualization  
+- Visualising Data on Grafana
+   ![grafana](./testInfluxDB_Telegraf_Grafana/Grafana.png)
+
+## What's next?  
