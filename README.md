@@ -43,7 +43,7 @@ In contrast to the high-maintenance leafy plants, succulents are the low-mainten
 - Create [testing](./testWeb/webv0.png) web monitor application with HTML, CSS, JavaScript
 
 ## What's next?  
->I focus on the connection between plants, people, and sensors (computers).
+>I focus on the connection between plants, people, and sensors (computers).  
 >How do we monitor and send data notifications when people and plants are not in the same space?   
 
 In process: 
