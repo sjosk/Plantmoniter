@@ -35,7 +35,7 @@ In contrast to the high-maintenance leafy plants, succulents are the low-mainten
 - Setting up Raspberry Pi as a gateway
 - [Install](./testInfluxDB_Telegraf_Grafana) InfluxDB, Telegraf, Grafana
 - Setting InfluxDB and Telegraf to capture the data from MQTT topics.
-- Create Databases and Raspberry Pi System Dashboard
+- Create Databases and Raspberry Pi System Dashboard  
  `(Token Permission)`
   
 ### Visualize: Times Series Database Visualization  
