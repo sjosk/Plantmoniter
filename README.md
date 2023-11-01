@@ -51,4 +51,4 @@ In contrast to the high-maintenance leafy plants, succulents are the low-mainten
 In process: 
 - [Webhook](./testNotifications) with Arduino: try to interact with the plant (debugging)
 - adding speaker/neo pixel with plant
-- Interactive website  ([practise](./testWeb/3DWeb))
+- Interactive website  ([practise](https://github.com/sjosk/Plantmonitor/tree/main/testWeb/3D%20Web))
