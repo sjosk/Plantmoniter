@@ -25,6 +25,7 @@ In contrast to the high-maintenance leafy plants, succulents are the low-mainten
 ### Sensor: Testing sensors and collecting data  
 - [Testing](./testDHT22) DHT22 and collecting environment data
 - [Testing](./testMoisture) Nail Soil sensor and collecting soil data  
+ `(pot size, nails: depth in soil, texture of nails, type of soil, distance between nails)`
  
 ### Connect: Connecting and publishing data to MQTT  
 - [Sending](./testMQTT) Data to MQTT (Publish topics: temperature, humidity, moisture)       
@@ -34,7 +35,8 @@ In contrast to the high-maintenance leafy plants, succulents are the low-mainten
 - Setting up Raspberry Pi as a gateway
 - [Install](./testInfluxDB_Telegraf_Grafana) InfluxDB, Telegraf, Grafana
 - Setting InfluxDB and Telegraf to capture the data from MQTT topics.
-- Create Database and Raspberry Pi System Dashboard
+- Create Databases and Raspberry Pi System Dashboard  
+ `(Token Permission)`
   
 ### Visualize: Times Series Database Visualization  
 - Visualising Data on Grafana
@@ -43,9 +45,10 @@ In contrast to the high-maintenance leafy plants, succulents are the low-mainten
 - Create [testing](./testWeb/webv0.png) web monitor application with HTML, CSS, JavaScript
 
 ## What's next?  
->I focus on the connection between plants, people, and sensors (computers).    
+>I focus on the connection between plants, people, and sensors (computers).  
+>How do we monitor and send data notifications when people and plants are not in the same space?   
 
 In process: 
-- Webhook with Arduino: try to interact with the plant (debugging)
+- [Webhook](./testNotifications) with Arduino: try to interact with the plant (debugging)
 - adding speaker/neo pixel with plant
 - Interactive website  ([practise](./testWeb/3DWeb))
