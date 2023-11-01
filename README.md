@@ -25,6 +25,7 @@ In contrast to the high-maintenance leafy plants, succulents are the low-mainten
 ### Sensor: Testing sensors and collecting data  
 - [Testing](./testDHT22) DHT22 and collecting environment data
 - [Testing](./testMoisture) Nail Soil sensor and collecting soil data  
+ `(pot size, nails: depth in soil, texture of nails, type of soil, distance between nails)`
  
 ### Connect: Connecting and publishing data to MQTT  
 - [Sending](./testMQTT) Data to MQTT (Publish topics: temperature, humidity, moisture)       
@@ -35,6 +36,7 @@ In contrast to the high-maintenance leafy plants, succulents are the low-mainten
 - [Install](./testInfluxDB_Telegraf_Grafana) InfluxDB, Telegraf, Grafana
 - Setting InfluxDB and Telegraf to capture the data from MQTT topics.
 - Create Databases and Raspberry Pi System Dashboard
+ `(Token Permission)`
   
 ### Visualize: Times Series Database Visualization  
 - Visualising Data on Grafana
