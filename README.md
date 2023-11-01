@@ -46,6 +46,6 @@ In contrast to the high-maintenance leafy plants, succulents are the low-mainten
 >I focus on the connection between plants, people, and sensors (computers).    
 
 In process: 
-- Webhook with Arduino: try to interact with the plant (debugging)
+- [Webhook](./testNotifications) with Arduino: try to interact with the plant (debugging)
 - adding speaker/neo pixel with plant
 - Interactive website  ([practise](./testWeb/3DWeb))
