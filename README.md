@@ -34,7 +34,7 @@ In contrast to the high-maintenance leafy plants, succulents are the low-mainten
 - Setting up Raspberry Pi as a gateway
 - [Install](./testInfluxDB_Telegraf_Grafana) InfluxDB, Telegraf, Grafana
 - Setting InfluxDB and Telegraf to capture the data from MQTT topics.
-- Create Database and Raspberry Pi System Dashboard
+- Create Databases and Raspberry Pi System Dashboard
   
 ### Visualize: Times Series Database Visualization  
 - Visualising Data on Grafana
@@ -43,7 +43,8 @@ In contrast to the high-maintenance leafy plants, succulents are the low-mainten
 - Create [testing](./testWeb/webv0.png) web monitor application with HTML, CSS, JavaScript
 
 ## What's next?  
->I focus on the connection between plants, people, and sensors (computers).    
+>I focus on the connection between plants, people, and sensors (computers).
+>How do we monitor and send data notifications when people and plants are not in the same space?   
 
 In process: 
 - [Webhook](./testNotifications) with Arduino: try to interact with the plant (debugging)
