@@ -39,5 +39,13 @@ In contrast to the high-maintenance leafy plants, succulents are the low-mainten
 ### Visualize: Times Series Database Visualization  
 - Visualising Data on Grafana
    ![grafana](./testInfluxDB_Telegraf_Grafana/Grafana.png)
+  
+- Create [testing](./testWeb/webv0.png) web monitor application with HTML, CSS, JavaScript
 
 ## What's next?  
+>I focus on the connection between plants, people, and sensors (computers).    
+
+In process: 
+- Webhook with Arduino: try to interact with the plant (debugging)
+- adding speaker/neo pixel with plant
+- Interactive website
