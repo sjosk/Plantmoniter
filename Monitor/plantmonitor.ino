@@ -15,7 +15,7 @@ float Temperature;
 float Humidity;
 int Moisture = 1; // initial value just in case web page is loaded before readMoisture called
 int sensorVCC = 13;
-int blueLED = 2;
+int greenLED = 2; //setup LED for Mode1 Notification
 DHT dht(DHTPin, DHTTYPE);   // Initialize DHT sensor.
 
 //include in arduino_secrets.h
@@ -43,11 +43,11 @@ void setup() {
   digitalWrite(BUILTIN_LED, HIGH);  
 
   // Set up the outputs to control the soil sensor
-  // switch and the blue LED for status indicator
+  // switch and the green LED for status indicator
   pinMode(sensorVCC, OUTPUT); 
   digitalWrite(sensorVCC, LOW);
-  pinMode(blueLED, OUTPUT); 
-  digitalWrite(blueLED, HIGH);
+  pinMode(greenLED, OUTPUT); 
+  digitalWrite(greenLED, HIGH);
 
   // open serial connection for debug info
   Serial.begin(115200);
@@ -68,30 +68,60 @@ void setup() {
 
 }
 void loop() {
-  // handler for receiving requests to webserver
   server.handleClient();
+  client.loop();
 
+  // Ensure we are still connected to MQTT
+  if (!client.connected()) {
+    reconnect();
+  }
+
+  // Read the current time
+  time_t now = GB.now();
+  int currentHour = GB.hour(now);
+  int currentMinute = GB.minute(now);
+
+  // Check if we are within the time range for Mode 1
+  bool isEveningOrNight = (currentHour > 17 || currentHour < 9 || (currentHour == 17 && currentMinute >= 30));
+  bool isMorningBeforeNineThirty = (currentHour == 9 && currentMinute < 30);
+
+  if (isEveningOrNight || isMorningBeforeNineThirty) {
+    // Mode 1: Evening 17:30 to next day Morning 9:30 (In the same place/at home)
+    digitalWrite(greenLED, HIGH); // LED on
+
+    // Flash LED if moisture is below 8
+    if (Moisture < 8) {
+      digitalWrite(greenLED, LOW);
+      delay(250);
+      digitalWrite(greenLED, HIGH);
+      delay(250);
+    }
+  } else {
+    // Outside Mode 1 time range(usually not in the same place with plant) - Turn LED off
+    // switch to the mode : Slack notification
+    digitalWrite(greenLED, LOW);
+  }
+
+  // Proceed with regular tasks
   if (minuteChanged()) {
     readMoisture();
     sendMQTT();
-    Serial.println(GB.dateTime("H:i:s")); // UTC.dateTime("l, d-M-y H:i:s.v T")
+    Serial.println(GB.dateTime("H:i:s"));
   }
-
-  client.loop();
 }
 
 void readMoisture(){
 
   // power the sensor
   digitalWrite(sensorVCC, HIGH);
-  digitalWrite(blueLED, LOW);
+  digitalWrite(greenLED, LOW);
   delay(100);
   // read the value from the sensor:
   Moisture = analogRead(soilPin);         
   //Moisture = map(analogRead(soilPin), 0,320, 0, 100);    // note: if mapping work out max value by dipping in water     
   //stop power
   digitalWrite(sensorVCC, LOW);  
-  digitalWrite(blueLED, HIGH);
+  digitalWrite(greenLED, HIGH);
   delay(100);
 //  Serial.print("Wet ");
   Serial.println(Moisture);   // read the value from the nails

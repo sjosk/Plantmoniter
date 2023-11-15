@@ -50,9 +50,9 @@ In contrast to the high-maintenance leafy plants, succulents are the low-mainten
 
 Considering that plants and people may not be in the same space, add a button variable.  
 Going out: use webhook integration with the application to create reminder notifications or plant virtual identities (soil humidity).  
-In the same space: use speaker sounds for reminders.  
+In the same space: use LED light for reminders.  
 
 In process: 
-- [Webhook](./testNotifications) with Arduino: try to interact with the plant (debugging)
-- adding speaker/button with plant
-- Interactive website  ([practise](https://github.com/sjosk/Plantmonitor/tree/main/testWeb/3D%20Web))
+- ✅ [Webhook](./testNotifications) with Arduino: try to interact with the plant  
+- ✅ adding led with plant
+
